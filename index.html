@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panoramic Technologies</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header img {
+      max-width: 250px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .slogan {
+      font-style: italic;
+      font-size: 1.2em;
+      color: #FFA500;
+      margin-top: 10px;
+    }
+
+    nav {
+      background: #006699;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .section {
+      background: white;
+      margin: 20px 0;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .section h2 {
+      color: #003366;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .tablink {
+      background: #006699;
+      color: white;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 12px 24px;
+      margin-right: 5px;
+      border-radius: 8px 8px 0 0;
+      font-size: 1em;
+      transition: background 0.2s;
+    }
+
+    .tablink.active, .tablink:hover {
+      background: #003366;
+    }
+
+    .tabcontent {
+      display: none;
+      animation: fadeEffect 0.5s;
+    }
+
+    .tabcontent.active {
+      display: block;
+    }
+
+    @keyframes fadeEffect {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    /* Founder Photo */
+    #founder img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      margin-bottom: 15px;
+      border: 4px solid #003366;
+    }
+
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2em;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      z-index: 999;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+    .whatsapp-float:hover {
+      background: #128c7e;
+    }
+
+    /* Careers Form */
+    .careers-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    .careers-form input[type="text"], .careers-form input[type="email"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 12px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    .careers-form input[type="file"] {
+      margin-bottom: 12px;
+    }
+    .careers-form button {
+      background: #006699;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    .careers-form button:hover {
+      background: #003366;
+    }
+
+    /* Gallery Styles */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+    .gallery-item {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      width: 280px;
+      padding: 15px;
+      text-align: center;
+    }
+    .gallery-item img {
+      max-width: 100%;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      height: 160px;
+      object-fit: cover;
+    }
+    .gallery-item h3 {
+      color: #003366;
+      margin-bottom: 8px;
+    }
+    .gallery-item p {
+      font-size: 0.95em;
+      color: #555;
+    }
+
+    /* Contacts */
+    .contacts-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 1.1em;
+    }
+    .contacts-list li {
+      margin-bottom: 10px;
+    }
+    .contacts-list a {
+      color: #006699;
+      text-decoration: none;
+    }
+    .contacts-list a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #003366;
+      color: white;
+      padding: 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="panoramic_logo.png" alt="Panoramic Technologies Logo" />
+    <h1>Panoramic Technologies</h1>
+    <div class="slogan">Innovative Solutions for Your Needs</div>
+  </header>
+
+  <nav>
+    <a href="#mission-vision">Mission & Vision</a>
+    <a href="#departments">Departments</a>
+    <a href="#showcase">Showcase</a>
+    <a href="#careers">Careers</a>
+    <a href="#philanthropy">Philanthropy</a>
+    <a href="#founder">Founder</a>
+    <a href="#contacts">Contacts</a>
+  </nav>
+
+  <div class="container">
+
+    <!-- Mission and Vision Section -->
+    <div id="mission-vision" class="section">
+      <h2>Our Mission</h2>
+      <p>
+        To deliver tailored solutions for every client's unique needs through intense research, practical decision-making, and a perfectionistic approach--empowering individuals and businesses to thrive with innovative technology and exceptional service.
+      </p>
+      <h2>Our Vision</h2>
+      <p>
+        To be a leading technology company recognized for transforming challenges into opportunities by providing customized, high-quality solutions that drive growth, inspire innovation, and foster lasting client success.
+      </p>
+    </div>
+
+    <!-- Departments as Tabs -->
+    <div id="departments" class="section">
+      <h2>Our Departments</h2>
+      <div class="tabs">
+        <button class="tablink active" onclick="openTab(event, 'cyber')">Cyber</button>
+        <button class="tablink" onclick="openTab(event, 'hardware')">Hardware</button>
+        <button class="tablink" onclick="openTab(event, 'photography')">Photography</button>
+        <button class="tablink" onclick="openTab(event, 'web')">Web Dev</button>
+        <button class="tablink" onclick="openTab(event, 'forex')">Forex</button>
+        <button class="tablink" onclick="openTab(event, 'cctv')">CCTV</button>
+      </div>
+
+      <div id="cyber" class="tabcontent active">
+        <h3>Panoramic Cyber</h3>
+        <p>Fast internet access, printing, scanning, online services, and digital assistance at your fingertips.</p>
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=60" alt="Cyber Services" />
+      </div>
+      <div id="hardware" class="tabcontent">
+        <h3>Panoramic Hardware</h3>
+        <p>Quality electrical materials, building tools, and electronic accessories at competitive prices.</p>
+        <img src="https://images.unsplash.com/photo-1581093588401-3b1d7f3a1f7b?auto=format&fit=crop&w=600&q=60" alt="Hardware Store" />
+      </div>
+      <div id="photography" class="tabcontent">
+        <h3>Panoramic Photography</h3>
+        <p>Capturing memories through events, portraits, and commercial photography using modern technology.</p>
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=60" alt="Photography" />
+      </div>
+      <div id="web" class="tabcontent">
+        <h3>Panoramic Web Developers</h3>
+        <p>Custom websites, mobile apps, and digital branding to elevate your online presence.</p>
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=60" alt="Web Development" />
+      </div>
+      <div id="forex" class="tabcontent">
+        <h3>Panoramic Forex Hub</h3>
+        <p>Learn and earn through strategic trading in forex, crypto, and online finance. Training available!</p>
+        <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?auto=format&fit=crop&w=600&q=60" alt="Forex Trading" />
+      </div>
+      <div id="cctv" class="tabcontent">
+        <h3>Panoramic CCTV</h3>
+        <p>Secure homes and businesses with expert CCTV, access control, and security systems installation.</p>
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=60" alt="CCTV Installation" />
+      </div>
+    </div>
+
+    <!-- Visual Showcase Section (formerly Gallery) -->
+    <div id="showcase" class="section">
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1581091870620-4e2f0c9c1d06?auto=format&fit=crop&w=600&q=60" alt="Electrical Contractors" />
+          <h3>Electrical Contractors</h3>
+          <p>Offering residential, commercial, and industrial electrical installation and maintenance services.</p>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=60" alt="CCTV Installation" />
+          <h3>CCTV Installation</h3>
+          <p>Expert installation of CCTV and security systems to protect your property.</p>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=60" alt="Web Development" />
+          <h3>Web Development</h3>
+          <p>Custom websites and apps designed to boost your business online.</p>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=60" alt="Photography" />
+          <h3>Photography</h3>
+          <p>Capturing your special moments with professional photography.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Careers Section -->
+    <div id="careers" class="section">
+      <h2>Careers</h2>
+      <p>
+        Are you passionate, motivated, and ready to transform your life? Join us! Upload your CV and become part of a team that values growth, hope, and excellence.
+      </p>
+      <form class="careers-form" action="#" method="post" enctype="multipart/form-data" onsubmit="return showThankYou();">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required />
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="cv">Upload Your CV:</label>
+        <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required />
+
+        <button type="submit">Submit Application</button>
+      </form>
+      <div id="thankyou-message" style="display:none; color:green; margin-top:10px;">
+        Thank you for your application! We will review your CV and get in touch.
+      </div>
+    </div>
+
+    <!-- Philanthropic Activities Section -->
+    <div id="philanthropy" class="section">
+      <h2>Philanthropic Activities</h2>
+      <p>
+        We are committed to supporting vulnerable groups--youth, single mothers, orphans, and others facing hardship--by providing training, mentorship, and opportunities to build better lives through technology.
+      </p>
+    </div>
+
+    <!-- Founder Section -->
+    <div id="founder" class="section" style="text-align:center;">
+      <h2>Meet the Founder</h2>
+      <img src="https://pplx-res.cloudinary.com/image/private/user_uploads/69866507/59c7d3f3-63cd-46ff-ba88-c02b58004e32/IMG_20250107_112025_147.jpg"
+           alt="Samwel Wafula Walubengo" />
+      <p>
+        <strong>Samwel Wafula Walubengo</strong><br />
+        Founder & CEO<br />
+        An electrical engineer, virtual assistant, and web developer with vast knowledge and a knack for meticulous research. Passionate about innovation and empowering others, Samwel leads Panoramic Technologies with vision, expertise, and dedication to building a thriving tech empire.
+      </p>
+    </div>
+
+    <!-- Contacts Section -->
+    <div id="contacts" class="section">
+      <h2>Contact Us</h2>
+      <ul class="contacts-list">
+        <li><strong>Email:</strong> <a href="mailto:sammywaf5@gmail.com">sammywaf5@gmail.com</a></li>
+        <li><strong>Call:</strong> <a href="tel:+254705782885">+254705782885</a></li>
+        <li><strong>WhatsApp:</strong> <a href="https://wa.me/254705782885" target="_blank">+254705782885</a></li>
+        <li><strong>Telegram:</strong> <a href="https://t.me/+254705782885" target="_blank">+254705782885</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/254705782885" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp" aria-label="Chat with us on WhatsApp">
+    <span style="font-size:1.6em;">&#128222;</span>
+  </a>
+
+  <footer>
+    &copy; 2025 Panoramic Technologies. All rights reserved.
+  </footer>
+
+  <script>
+    // Tab functionality
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].classList.remove("active");
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+      }
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+
+    // Careers form thank you message
+    function showThankYou() {
+      document.getElementById('thankyou-message').style.display = 'block';
+      setTimeout(function() {
+        document.getElementById('thankyou-message').style.display = 'none';
+      }, 5000);
+      return false; // Prevent actual form submission
+    }
+  </script>
+</body>
+</html>
